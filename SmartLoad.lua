@@ -77,18 +77,20 @@ function getFilename(path)
 end
 
 function unpercent(str)
-    local matchCount
-    local parsedString
-    local percMatch = "%%%x%x"
-    function parsePercent(str)
-        local varCode = tonumber(string.sub(str, 2), 16)
-        -- vlc.msg.dbg("matched " .. str .. " charCode " .. varCode .. " char: " .. string.char(varCode))
-        return string.char(varCode) -- should be utf8.char(varCode)
-    end
+
+    return vlc.strings.url_parse(str)
+    -- local matchCount
+    -- local parsedString
+    -- local percMatch = "%%%x%x"
+    -- function parsePercent(str)
+    --    local varCode = tonumber(string.sub(str, 2), 16)
+    --     -- vlc.msg.dbg("matched " .. str .. " charCode " .. varCode .. " char: " .. string.char(varCode))
+    --     return string.char(varCode) -- should be utf8.char(varCode)
+    -- end
     
-    parsedString, matchCount = string.gsub(str, percMatch, parsePercent)
-    -- vlc.msg.dbg(matchCount .. " " .. parsedString)
-    return parsedString
+    -- parsedString, matchCount = string.gsub(str, percMatch, parsePercent)
+    -- -- vlc.msg.dbg(matchCount .. " " .. parsedString)
+    -- return parsedString
 end
 
 function deactivate()
