@@ -2,7 +2,7 @@ function descriptor()
     return {
         title = "Smart Playlist Extender";
         description = "Extends the playlist by files in last item's directory";
-        version = "0.1";
+        version = "0.1.1";
         author = "thebamby";
         capabilities = {}
     }
