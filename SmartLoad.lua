@@ -34,8 +34,8 @@ function activate()
         return 
     end
 
-    local folderPath = getFolder(curItem.path)
-    local curItemName = getFilename(curItem.path)
+    local folderPath = getFolder(curItem.path).path
+    local curItemName = getFilename(curItem.path).path
     -- for k,v in pairs(vlc.net.opendir(folderPath)) do vlc.msg.dbg(tostring(k) .. " " .. tostring(v)) end
 
     local files = vlc.io.readdir(folderPath)
