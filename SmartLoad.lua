@@ -12,7 +12,7 @@ function activate()
     -- vlc.playlist.enqueue({{path = ""}})
     -- if (true) then return end
 
-    local playlistItems = vlc.playlist.get("normal", false).children
+    local playlistItems = vlc.playlist.list()
     -- vlc.msg.dbg(vlc.playlist.current())
     if (#playlistItems == 0) then 
         vlc.msg.info("[SmartLoad] No items in playlist!")
