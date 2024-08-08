@@ -35,10 +35,10 @@ function activate()
     end
 
     local folderPath = getFolder(curItem.path).path
-    local curItemName = getFilename(curItem.path).path
+    local curItemName = vlc.strings.decode_uri(getFilename(curItem.path).path)
     -- for k,v in pairs(vlc.net.opendir(folderPath)) do vlc.msg.dbg(tostring(k) .. " " .. tostring(v)) end
-
-    local files = vlc.io.readdir(folderPath)
+    local decodedFolderPath = vlc.strings.decode_uri(folderPath);
+    local files = vlc.io.readdir(decodedFolderPath)
     table.sort(files)
 
     local beforeFile = true
